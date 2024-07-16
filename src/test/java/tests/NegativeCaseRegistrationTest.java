@@ -1,7 +1,13 @@
 package tests;
 
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Allure;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -11,11 +17,12 @@ public class NegativeCaseRegistrationTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void checkValidationTest() {
+    void checkValidationTest()
+
+    {
         registrationPage
                 .openPage()
                 .closeBanner()
-
                 .submit();
 
         $("#firstName").shouldNotHave(text("abc"));

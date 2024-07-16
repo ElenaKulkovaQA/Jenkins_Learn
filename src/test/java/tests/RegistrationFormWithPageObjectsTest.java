@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
@@ -9,8 +11,10 @@ public class RegistrationFormWithPageObjectsTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     CheckResultComponent results = new CheckResultComponent();
 
+
     @Test
     void successfulRegistrationTest() {
+
         registrationPage
                 .openPage()
                 .closeBanner()

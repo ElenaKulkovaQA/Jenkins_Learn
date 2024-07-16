@@ -2,6 +2,8 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,16 +16,17 @@ public class RegistrationFormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
         Configuration.timeout = 5000;
+
     }
 
     @Test
     void fillFormTests() {
 
         open("/automation-practice-form");
+
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
