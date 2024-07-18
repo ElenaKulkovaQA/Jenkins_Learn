@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.devtools.v115.page.model.FrameAttached;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
 

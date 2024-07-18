@@ -61,7 +61,9 @@ public class RegistrationFormTest {
                 Condition.text("img.png"),
                 Condition.text("Address First street"),
                 Condition.text("State and City NCR Delhi")
+
         );
 
     }
+
 }
