@@ -9,6 +9,8 @@ import org.openqa.selenium.devtools.v115.page.model.FrameAttached;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class RegistrationFormWithPageObjectsTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -20,11 +22,10 @@ public class RegistrationFormWithPageObjectsTest extends TestBase {
     })
     @Test
     void successfulRegistrationTest() {
-
+        registrationPage.openPage();
+        sleep(3000);
         registrationPage
-                .openPage()
                 .closeBanner()
-
                 .setFirstName("Elena")
                 .setLastName("Ku")
                 .setEmail("example@example.com")

@@ -29,7 +29,7 @@ public class RegistrationFormTest {
     void fillFormTests() {
 
         open("/automation-practice-form");
-
+        sleep(3000);
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -45,6 +45,8 @@ public class RegistrationFormTest {
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("img.png");
+
+
         $("#currentAddress").setValue("First street");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();

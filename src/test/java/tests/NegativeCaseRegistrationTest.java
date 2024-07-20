@@ -1,9 +1,12 @@
 package tests;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class NegativeCaseRegistrationTest extends TestBase {
 
@@ -12,8 +15,11 @@ public class NegativeCaseRegistrationTest extends TestBase {
     @Tag("regression")
     @Test
     void checkValidationTest() {
+
+        registrationPage.openPage();
+        sleep(3000);
+
         registrationPage
-                .openPage()
                 .closeBanner()
                 .submit();
 

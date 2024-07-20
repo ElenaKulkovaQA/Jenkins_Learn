@@ -1,4 +1,5 @@
 package tests;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -8,13 +9,15 @@ import utils.TestData;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 
 public class RegistrationWithRandomUtilsTests extends TestBase {
 
     private RegistrationPage registrationPage = new RegistrationPage();
     private CheckResultComponent results = new CheckResultComponent();
-    private  TestData testData = new TestData();
+    private TestData testData = new TestData();
+
     @Tags({
             @Tag("regression"),
             @Tag("smoke")
@@ -23,9 +26,10 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
     void fillFormTests() {
 
         registrationPage.openPage();
-        registrationPage.closeBanner();
-
+        sleep(3000);
         registrationPage
+                .closeBanner()
+
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setEmail(testData.email)
@@ -67,14 +71,17 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
                 .checkResult("State and City", AbsolutAddress);
 
     }
+
+    @Tag("regression")
     @Test
     void checkValidationFieldsRequiredTest() {
 
+        registrationPage.openPage();
+        sleep(3000);
         registrationPage
-                .openPage()
                 .closeBanner()
-
                 .submit();
+
 
         $("#firstName").shouldNotHave(text("abc"));
         $("#lastName").shouldNotHave(text("abc"));
