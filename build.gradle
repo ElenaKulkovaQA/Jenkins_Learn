@@ -40,24 +40,7 @@ dependencies {
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
-
-    // Скорее всего у вас тут будет что-то еще
-
-}
-
-tasks.withType(Test) {
-    useJUnitPlatform()
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-}
-
-dependencies {
-    testImplementation(
-            "org.aeonbits.owner:owner:1.0.12",
-    )
+    useJUnitPlatform({
+        includeTags(System.getProperty("type", "regression"))
+    })
 }

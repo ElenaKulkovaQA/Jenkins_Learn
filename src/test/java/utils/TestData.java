@@ -1,8 +1,6 @@
 package utils;
 
-
 import com.github.javafaker.Faker;
-
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;

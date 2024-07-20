@@ -1,8 +1,6 @@
 package tests;
-
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
@@ -17,7 +15,10 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
     private RegistrationPage registrationPage = new RegistrationPage();
     private CheckResultComponent results = new CheckResultComponent();
     private  TestData testData = new TestData();
-
+    @Tags({
+            @Tag("regression"),
+            @Tag("smoke")
+    })
     @Test
     void fillFormTests() {
 

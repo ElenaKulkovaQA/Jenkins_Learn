@@ -2,6 +2,8 @@ package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.devtools.v115.page.model.FrameAttached;
 import pages.components.CheckResultComponent;
@@ -12,7 +14,10 @@ public class RegistrationFormWithPageObjectsTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     CheckResultComponent results = new CheckResultComponent();
 
-
+    @Tags({
+            @Tag("regression"),
+            @Tag("smoke")
+    })
     @Test
     void successfulRegistrationTest() {
 
