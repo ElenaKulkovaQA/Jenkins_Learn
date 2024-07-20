@@ -6,11 +6,9 @@ import org.junit.jupiter.api.Test;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
 import utils.TestData;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
-
 
 public class RegistrationWithRandomUtilsTests extends TestBase {
 
@@ -81,7 +79,6 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
         registrationPage
                 .closeBanner()
                 .submit();
-
 
         $("#firstName").shouldNotHave(text("abc"));
         $("#lastName").shouldNotHave(text("abc"));
