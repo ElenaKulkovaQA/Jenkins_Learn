@@ -36,6 +36,7 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
                 .uploadPicture(testData.uploadFile)
                 .setAddress(testData.address)
                 .setSubjects(testData.subject)
+                .closeBanner()
                 .setHobbies(testData.hobbies)
                 .closeBanner()
                 .setState(testData.state)

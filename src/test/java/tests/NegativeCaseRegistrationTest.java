@@ -4,6 +4,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -17,9 +19,7 @@ public class NegativeCaseRegistrationTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void checkValidationTest()
-
-    {
+    void checkValidationTest(){
         registrationPage
                 .openPage()
                 .closeBanner()

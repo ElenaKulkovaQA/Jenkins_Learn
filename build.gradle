@@ -34,7 +34,15 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.10.0",
             'org.slf4j:slf4j-simple:2.0.7',
             'com.github.javafaker:javafaker:1.0.2'
+
     )
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+
+    // Скорее всего у вас тут будет что-то еще
+
 }
 
 tasks.withType(Test) {
@@ -46,4 +54,10 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+
+dependencies {
+    testImplementation(
+            "org.aeonbits.owner:owner:1.0.12",
+    )
 }
