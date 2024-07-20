@@ -41,6 +41,6 @@ dependencies {
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform({
-        includeTags(System.getProperty("type", "regression"))
+        includeTags(System.getProperty("tag", "regression"))
     })
 }
