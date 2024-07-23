@@ -1,6 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
@@ -27,6 +29,7 @@ public class RegistrationPage {
     private CalendarComponent
             calendarComponent = new CalendarComponent();
 
+
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
@@ -34,12 +37,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage closeBanner(){
+    public RegistrationPage closeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
         return this;
     }
+
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
@@ -82,6 +86,7 @@ public class RegistrationPage {
 
         return this;
     }
+
     public RegistrationPage uploadPicture(String fileName) {
         uploadPicture.uploadFromClasspath(fileName);
 
@@ -116,13 +121,11 @@ public class RegistrationPage {
         return this;
     }
 
-        public RegistrationPage submit()
-        {
-            submitButton.click();
+    public RegistrationPage submit() {
+        submitButton.click();
 
-            return this;
-        }
-
+        return this;
+    }
 
 
 }
