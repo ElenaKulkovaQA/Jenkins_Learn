@@ -11,16 +11,8 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTest {
+public class RegistrationFormTest extends TestBase{
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = false;
-        Configuration.timeout = 5000;
-
-    }
     @Tags({
             @Tag("regression"),
             @Tag("smoke")
