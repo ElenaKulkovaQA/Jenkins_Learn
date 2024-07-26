@@ -20,7 +20,7 @@ public class RegistrationFormTest extends TestBase{
     @Test
     void fillFormTests() {
 
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         sleep(3000);
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
