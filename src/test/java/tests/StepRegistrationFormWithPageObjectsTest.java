@@ -8,10 +8,13 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-public class RegistrationFormWithPageObjectsTest extends TestBase {
+public class StepRegistrationFormWithPageObjectsTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     CheckResultComponent results = new CheckResultComponent();
@@ -157,5 +160,35 @@ public class RegistrationFormWithPageObjectsTest extends TestBase {
 
     }
 
+    @Tag("regression")
+    @Test
+    void checkValidationTest() {
+
+        step("Открываем главную страницу и ожидаем появление баннера",() -> {
+            registrationPage.openPage();
+            sleep(3000);
+        })
+        ;
+
+        step("Закрываем баннер",() -> {
+            registrationPage
+                    .closeBanner();
+        })
+        ;
+        step("сразу нажимаем  submit",() -> {
+            registrationPage
+                    .submit();
+        })
+        ;
+        step("Проверяем, что не открылось окно с результатами, так как не заполнены поля Имя, Фамилия, " +
+                "Пол,номер телефона",() -> {
+
+            $("#firstName").shouldNotHave(text("abc"));
+            $("#lastName").shouldNotHave(text("abc"));
+            $("#genterWrapper").shouldNotHave(text("abc"));
+            $("#userNumber").shouldNotHave(text("abc"));
+        })
+        ;
+    }
 }
 
