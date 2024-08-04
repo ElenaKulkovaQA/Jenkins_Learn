@@ -47,7 +47,6 @@ tasks.withType(Test) {
     useJUnitPlatform({
         includeTags(System.getProperty("tag", "regression"))
         includeTags(System.getProperty("tag", "smoke"))
-        includeTags(System.getProperty("tag", "step"))
-        includeTags(System.getProperty("tag", "negative"))
+
     })
 }
