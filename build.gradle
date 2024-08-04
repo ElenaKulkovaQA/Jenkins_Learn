@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.11.2'
 }
 
@@ -37,9 +37,17 @@ dependencies {
     )
 }
 
+//test {
+//    useJUnitPlatform()
+//}
+
+
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform({
         includeTags(System.getProperty("tag", "regression"))
+        includeTags(System.getProperty("tag", "smoke"))
+        includeTags(System.getProperty("tag", "step"))
+        includeTags(System.getProperty("tag", "negative"))
     })
 }
