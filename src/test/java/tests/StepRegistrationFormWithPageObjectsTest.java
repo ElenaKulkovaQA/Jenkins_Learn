@@ -6,12 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
+import pages.components.CheckResultComponent;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static io.qameta.allure.Allure.step;
 
 public class StepRegistrationFormWithPageObjectsTest extends TestBase {
 
@@ -30,128 +29,127 @@ public class StepRegistrationFormWithPageObjectsTest extends TestBase {
     @Test
     void successfulRegistrationTest() {
 
-        step("Открываем главную страницу и ожидаем появление баннера",() -> {
-        registrationPage.openPage();
-        sleep(3000);
+        step("Открываем главную страницу и ожидаем появление баннера", () -> {
+            registrationPage.openPage();
         })
         ;
 
-        step("Закрываем баннер",() -> {
-        registrationPage
-                .closeBanner();
-        })
-        ;
-        step("Заполняем поле Имя",() -> {
+        step("Закрываем баннер", () -> {
             registrationPage
-                .setFirstName("Elena");
+                    .closeBanner();
         })
         ;
-        step("Заполняем поле Фамилия",() -> {
-             registrationPage.setLastName("Ku");
-        })
-        ;
-        step("Заполняем поле Почта",() -> {
+        step("Заполняем поле Имя", () -> {
             registrationPage
-               .setEmail("example@example.com");
+                    .setFirstName("Elena");
         })
         ;
-        step("Выбираем значение Пол",() -> {
+        step("Заполняем поле Фамилия", () -> {
+            registrationPage.setLastName("Ku");
+        })
+        ;
+        step("Заполняем поле Почта", () -> {
             registrationPage
-              .setGender("Female");
+                    .setEmail("example@example.com");
         })
         ;
-        step("Выбираем значение Номер телефона",() -> {
+        step("Выбираем значение Пол", () -> {
+            registrationPage
+                    .setGender("Female");
+        })
+        ;
+        step("Выбираем значение Номер телефона", () -> {
             registrationPage
                     .setUserNumber("8999111663");
         })
         ;
-        step("Выбираем Дату рождения",() -> {
+        step("Выбираем Дату рождения", () -> {
             registrationPage
                     .setDateOfBirth("30", "December", "1986");
         })
         ;
-        step("Выбираем Предмет",() -> {
+        step("Выбираем Предмет", () -> {
             registrationPage
                     .setSubjects("Maths");
         })
         ;
-        step("Выбираем Хобби",() -> {
+        step("Выбираем Хобби", () -> {
             registrationPage
                     .setHobbies("Sports");
         })
         ;
-        step("Загружаем картинку",() -> {
+        step("Загружаем картинку", () -> {
             registrationPage
                     .uploadPicture("img.png");
         })
         ;
-        step("Заполняем адрес",() -> {
+        step("Заполняем адрес", () -> {
             registrationPage
                     .setAddress("Some address 1");
         })
         ;
-        step("Выбираем штат",() -> {
+        step("Выбираем штат", () -> {
             registrationPage
                     .setState("NCR");
         })
         ;
-        step("Выбираем город",() -> {
+        step("Выбираем город", () -> {
             registrationPage
                     .setCity("Delhi");
         })
         ;
-        step("Нажимаем submit",() -> {
+        step("Нажимаем submit", () -> {
             registrationPage
                     .submit();
         })
         ;
 
-        step("Проверяем результат по полю имя студента",() -> {
-        results
-                .checkResult("Student Name", "Elena Ku");
+        step("Проверяем результат по полю имя студента", () -> {
+            results
+                    .checkResult("Student Name", "Elena Ku");
         })
         ;
-        step("Проверяем результат по полю почта студента",() -> {
+        step("Проверяем результат по полю почта студента", () -> {
             results
                     .checkResult("Student Email", "example@example.com");
         })
         ;
-        step("Проверяем результат по полю Пол студента",() -> {
+        step("Проверяем результат по полю Пол студента", () -> {
             results
                     .checkResult("Gender", "Female");
         })
         ;
-        step("Проверяем результат по полю Номер телефона студента",() -> {
+        step("Проверяем результат по полю Номер телефона студента", () -> {
             results
                     .checkResult("Mobile", "8999111663");
         })
         ;
-        step("Проверяем результат по полю Дата рождения телефона студента",() -> {
+        step("Проверяем результат по полю Дата рождения телефона студента", () -> {
             results
                     .checkResult("Date of Birth", "30 December,1986");
         })
         ;
-        step("Проверяем результат по полю Предмет студента",() -> {
+        step("Проверяем результат по полю Предмет студента", () -> {
             results
                     .checkResult("Subjects", "Maths");
         })
         ;
-        step("Проверяем результат по полю Хобби студента",() -> {
+        step("Проверяем результат по полю Хобби студента", () -> {
             results
                     .checkResult("Hobbies", "Sports");
         })
         ;
-        step("Проверяем результат по полю загруженная картинка студента",() -> {
+        step("Проверяем результат по полю загруженная картинка студента", () -> {
             results
                     .checkResult("Picture", "img.png");
         })
         ;
-        step("Проверяем результат по полю Адрес студента",() -> {
+        step("Проверяем результат по полю Адрес студента", () -> {
             results
                     .checkResult("Address", "Some address 1");
         })
         ;
-        step("Проверяем результат по полю Штат и Город студента",() -> {
+        step("Проверяем результат по полю Штат и Город студента", () -> {
             results
                     .checkResult("State and City", "NCR Delhi");
         })
@@ -163,24 +161,23 @@ public class StepRegistrationFormWithPageObjectsTest extends TestBase {
     @Test
     void checkValidationTest() {
 
-        step("Открываем главную страницу и ожидаем появление баннера",() -> {
+        step("Открываем главную страницу и ожидаем появление баннера", () -> {
             registrationPage.openPage();
-            sleep(3000);
         })
         ;
 
-        step("Закрываем баннер",() -> {
+        step("Закрываем баннер", () -> {
             registrationPage
                     .closeBanner();
         })
         ;
-        step("сразу нажимаем  submit",() -> {
+        step("сразу нажимаем  submit", () -> {
             registrationPage
                     .submit();
         })
         ;
         step("Проверяем, что не открылось окно с результатами, так как не заполнены поля Имя, Фамилия, " +
-                "Пол,номер телефона",() -> {
+                "Пол,номер телефона", () -> {
 
             $("#firstName").shouldNotHave(text("abc"));
             $("#lastName").shouldNotHave(text("abc"));
